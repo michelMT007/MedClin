@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pacientesapp">
+<head>
+    <meta charset="UTF-8">
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="srcjs/appproc.js"></script>
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    <script src="APIREST/appwebang/js/paciente.js"></script>
+    
+    <title>Pacientes</title>
+</head>
+    <body>
+        <div class="jumbotron" ng-controller="pacientesCtrl">
+            
+            <h1>Cadastro de Paciente</h1>
+            <h6> {{message}} </h6>
+            <h6> {{pacientes}} </h6>
+
+            <!-- Modal -->
+            <form name="mainForm" ng-submit="">
+
+                <div>
+                    <label>Nome</label><br/>
+                    <input type="text" ng-model="pacientes.nome" name="nome" required/> <br/>
+                </div>
+                
+                <div>
+                    <label>RG</label><br/>
+                    <input type="text" ng-model="" name="rg" required/> <br/>
+                </div>
+                <div>
+                    <label>CPF</label><br/>
+                    <input type="text" ng-model="" name="cpf" required/> <br/>
+                </div>
+                
+                <div>
+                    <label>Endereco</label><br/>
+                    <input type="text" ng-model="pacientes.nome" name="nome" required/> <br/>
+                </div>
+                <div>
+                    <label>Protoario</label><br/>
+                    <input type="text" ng-model="pacientes.nome" name="nome" required/> <br/>
+                </div>
+                
+                <div>
+                    <label>Observação</label><br/>
+                    <input type="text" ng-model="pacientes.nome" name="nome" required/> <br/>
+                </div>
+                
+                <div>
+                    <input type="button" class="btn btn-primary" value="Salvar" ng-disabled="mainForm.$invalid">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

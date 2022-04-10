@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIREST.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220328000748_SegundoMigration")]
-    partial class SegundoMigration
+    [Migration("20220408202358_refatorando")]
+    partial class refatorando
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,25 +28,25 @@ namespace APIREST.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AtendenteId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DataAgenda")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataAtendimento")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("MedicoId")
+                    b.Property<int>("IdAtendente")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProcedimentoMedicoId")
+                    b.Property<int>("IdMedico")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPacienteAtendido")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProcedimentoMedico")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AtendenteId");
-
-                    b.HasIndex("MedicoId");
-
-                    b.HasIndex("ProcedimentoMedicoId");
 
                     b.ToTable("Atendimentos");
                 });
@@ -126,27 +126,6 @@ namespace APIREST.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Paciente");
-                });
-
-            modelBuilder.Entity("APIREST.Models.Atendimento", b =>
-                {
-                    b.HasOne("APIREST.Models.Funcionario", "Atendente")
-                        .WithMany()
-                        .HasForeignKey("AtendenteId");
-
-                    b.HasOne("APIREST.Models.Funcionario", "Medico")
-                        .WithMany()
-                        .HasForeignKey("MedicoId");
-
-                    b.HasOne("APIREST.Models.Procedimento", "ProcedimentoMedico")
-                        .WithMany()
-                        .HasForeignKey("ProcedimentoMedicoId");
-
-                    b.Navigation("Atendente");
-
-                    b.Navigation("Medico");
-
-                    b.Navigation("ProcedimentoMedico");
                 });
 #pragma warning restore 612, 618
         }

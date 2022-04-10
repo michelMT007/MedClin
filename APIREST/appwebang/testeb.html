@@ -1,0 +1,98 @@
+<!DOCTYPE html >
+<html lang="en" ng-app="testesmact" >
+<head>
+    
+    <title>Michel-Angular</title>
+    <link rel="stylesheet" href="content/bootstrap.min.css">
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular/app.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="angular/app.js"></script>
+    <script src="/js/testeb.js"></script>
+        
+</head>
+    <body  class="jumbotron">
+       <h6> Lista de Pessoas e nacionalidadte</h6>
+        <div ng-controller="testesCtrl" >  
+            <table class="table table-striped">
+                <thead>
+                   <h1>{{message}}</h1> 
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">País</th>
+                  </tr>
+                </thead>
+                <tbody ng-repeat="p in procedimentos">
+                  <tr >
+                    <td>{{p.id}}</td>
+                    <td>{{p.descricao}}</td>
+                    <td>{{p.valor}}</td>
+                    
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+        <!--  onclick="testbt()" -->
+        <hr>
+            <button  >Click me</button>
+        </hr>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+    
+                
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Novo Cadastro</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Nome</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Nome..."
+                                    ng-model="novoCliente.nome">
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Telefone</label>
+                                <div class="col-sm-10">
+                                    <input type="tel" class="form-control" placeholder="Telefone..."
+                                        ng-model="novoCliente.telefone">
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">E-mail</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" placeholder="E-mail..."
+                                        ng-model="novoCliente.email">
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary"
+                                    ng-click="salvar()" data-dismiss="modal">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        
+    </body>
+</html>

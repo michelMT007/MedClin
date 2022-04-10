@@ -14,9 +14,11 @@ namespace APIREST.Context
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        {  
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=univag;Integrated Security=True;Connect Timeout=30;Encrypt=False;" +
             "TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            //optionsBuilder.UseSqlServer("Data Source=192.168.160.17, 1433; Network Library=DBMSSOCN; Initial Catalog= DBSisCli; User ID=UsrSistema;Password=univ@g" "TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            /* Data Source=190.190.200.100,1433;Network Library=DBMSSOCN;Initial Catalog=myDataBase;User ID=myUsername;Password=myPassword; */
         }
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="siscli">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Angular SISCLI</title>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="/angular/app.js"></script>
+    
+    <link rel="stylesheet" href="content/bootstrap.min.css">
+    <script src="angular/app.js"></script>
+    
+</head>
+<body>
+    <div class="jumbotron">
+        <div ng-controller="funcionariocontroller">
+            <h4>{{message}}</h4>
+        </div>
+
+        <h1>Hello Angular - SIS CLI</h1>
+        <div >
+            <h6>Name : <input type="text" ng-model="name"></h6>
+            <h6>Idade : <input type="text" ng-model="idade"></h6>
+
+            <h6>Nome: {{name}}</h6>
+            <h6>Idade: {{idade}}</h6>
+        </div>
+    </div>
+</body>
+</html>

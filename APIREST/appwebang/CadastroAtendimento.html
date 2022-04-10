@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="angular.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    
+    <title>Atendimento</title>
+</head>
+    <body>
+        <div class="jumbotron">
+            <h1>Atendimentos</h1>
+            <form name="mainForm" >
+
+                <div>
+                    <label>Paciente</label><br/>
+                    <input type="text" ng-model="atendimento.paciente" name="paciente" required/> <br/>
+                </div>
+                <div>
+                    <label>Data agendamento</label><br/>
+                    <input type="text" ng-model="atendimento.data" name="nome" required/> <br/>
+                </div>
+
+                <div>
+                    <label>Médico</label><br/>
+                    <input type="text" ng-model="atendimento.medico" name="medico" required/> <br/>
+                </div>
+                <div>
+                    <label>Atendente</label><br/>
+                    <input type="text" ng-model="atendimento.atendente" name="atendente" required/> <br/>
+                </div>
+                <div>
+                    <label>Procedimento</label><br/>
+                    <input type="text" ng-model="atendimento.procedimento" name="procedimento" required/> <br/>
+                </div><br/><br/>
+                <div>
+                    <input type="button" class="btn btn-primary" value="Salvar" ng-disabled="mainForm.$invalid">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

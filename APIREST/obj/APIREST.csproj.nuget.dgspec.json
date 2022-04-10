@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\miche\\source\\repos\\APIREST\\APIREST\\APIREST.csproj": {}
+    "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj": {}
   },
   "projects": {
-    "C:\\Users\\miche\\source\\repos\\APIREST\\APIREST\\APIREST.csproj": {
+    "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\miche\\source\\repos\\APIREST\\APIREST\\APIREST.csproj",
+        "projectUniqueName": "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj",
         "projectName": "APIREST",
-        "projectPath": "C:\\Users\\miche\\source\\repos\\APIREST\\APIREST\\APIREST.csproj",
+        "projectPath": "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj",
         "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\miche\\source\\repos\\APIREST\\APIREST\\obj\\",
+        "outputPath": "D:\\siscli\\APIREST\\APIREST\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.15, )"

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIREST.Context;
 using APIREST.Models;
+using System.Web.Http.Cors;
 
 namespace APIREST.Controllers
 {
@@ -22,6 +23,7 @@ namespace APIREST.Controllers
         }
 
         // GET: api/Procedimentos
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Procedimento>>> GetProcedimentos()
         {
