@@ -4,7 +4,7 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
     // Simple Post request example:    
     var url = 'https://localhost:44397/api/funcionarios/'
     ,config='contenttype';
-    $scope.funcionario = {};
+    $scope.funcionarios = null;
     $scope.funcionarioSelecionado = {};
     /*
             "id": 0, "nome": "string","rg": "string","cpf": "string",
@@ -30,15 +30,15 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
         $scope.funcionarios = response.data;
     });    
     
-    $scope.selecionaProcedimento = function (funcionario) {
+    $scope.selecionaFuncionario = function (funcionario) {
         $scope.funcionarioSelecionado = funcionario;
     };
 
-    $scope.excluirProcedimento = function(funcionario){
-        $http.delete("https://localhost:44397/api/procedimentos/"+funcionario); 
+    $scope.excluirFuncionario = function(funcionario){
+        $http.delete("https://localhost:44397/api/funcionarios/"+funcionario); 
         funcionario = {};
         reload();
-        alert("Procedimento Excluido com sucesso!"); 
+        
     };
 
     function reload()
@@ -46,7 +46,7 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
         location.reload(); 
     }
    
-    $scope.updateProcedimento = function() {
+    $scope.update = function() {
     $http({
       method: 'PUT',
       url: url + $scope.funcionarioSelecionado.id,

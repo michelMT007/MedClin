@@ -7,7 +7,7 @@
     <script src="content/jquery-3.3.1.min.js"></script>
     <script src="content/bootstrap.min.js"></script>
     <script src="content/popper.min.js"></script>
-    <script src="/APIREST/appwebang/js/funcionarios.js"></script>
+    
     <script src="angular/angular.js"></script>
     <script src="angular/angular.min.js"></script>
     <script src="/js/funcionarios.js"></script>
@@ -37,17 +37,17 @@
                 </thead>
     
                 <tbody>
-                <tr ng-repeat="fun in funcionarios">
-                    <td>{{fun.matricula}}</td> 
-                    <td>{{fun.nome}}</td>
-                    <td>{{fun.rg}}</td>
-                    <td>{{fun.profissao}}</td>
-                    <td>{{fun.endereco}}</td>
+                <tr ng-repeat="funcionario in funcionarios">
+                    <td>{{funcionario.id}}</td> 
+                    <td>{{funcionario.nome}}</td>
+                    <td>{{funcionario.rg}}</td>
+                    <td>{{funcionario.profissao}}</td>
+                    <td>{{funcionario.endereco}}</td>
                     <td>
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalEditar" ng-click="">Editar</button>
+                        <button ng-click="selecionaFuncionario(funcionario)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalEditar" ng-click="selecionaFuncionario(funcionario)">Editar</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalExcluir" ng-click="">Excluir</button>
+                        <button ng-click="selecionaFuncionario(funcionario)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalExcluir" >Excluir</button>
                     </td>
                 </tr>
                 </tbody>
@@ -55,6 +55,29 @@
         </div>
         
         <hr>
+        <!--Modal Excluir --------------------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalExcluir" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Você tem certeza?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="font-weight: bolder"> Você vai excluir o Cadastro de {{funcionarioSelecionado.nome}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            ng-click="excluirFuncionario(funcionarioSelecionado.id)" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
+        
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -88,16 +111,18 @@
                                 ng-model="funcionario.cpf">
                             </div>
                         </div>
+
                         <div class="form-group" class="col-sm-5">
                             <label class="control-label col-sm-1"> Profissão</label><br/>
                             <div >
                                 <select id="funcionario.profissao" ng-model="funcionario.profissao" 
                                     name="funcao" class="form-control">
-                                    <option value="atendente">Atendente</option>
-                                    <option value="medico">Médico</option> 
+                                    <option value="Atendente">Atendente</option>
+                                    <option value="Médico">Médico</option> 
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label class="control-label col-sm-2"></label>
                             <div class="col-sm-10">
@@ -128,23 +153,104 @@
             </div>
         </div>
         
-    
-                
-            <!-- <form class="" name="mainForm" ng-submit="send()">
+        <!-- --------------Modal Editar----------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalEditar" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4c lass="modal-title">Editar Cadastro</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Nome</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="Nome"
+                                    ng-model="funcionarioSelecionado.nome">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">RG</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="RG"
+                                    ng-model="funcionarioSelecionado.rg">
+                                </div>
+                            </div>
 
-                <div>
-                    <label>Descrição do Procedimento</label><br/>
-                    <input type="text" ng-model="procedimento.descricao" name="descricao" required/> <br/>
-                </div>
-                <div>
-                    <label>Preço</label><br/>
-                    <input type="number" ng-model="procedimento.valor" name="valor" step="0.00"> <br/>
-                </div>
-                
-                <div>
-                    <input type="submit" ng-disabled="mainForm.$invalid">
-                </div>
-            </form> -->
 
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">CPF</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="CPF"
+                                    ng-model="funcionarioSelecionado.cpf">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Endereço</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="CPF"
+                                    ng-model="funcionarioSelecionado.endereco">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group" class="col-sm-5">
+                                <label class="control-label col-sm-1"> Profissão</label><br/>
+                                <div >
+                                    <select id="" ng-model="funcionarioSelecionado.profissao" name="funcao" class="form-control">
+                                        <option value="Atendente">Atendente</option>
+                                        <option value="Médico">Médico</option> 
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"></label>
+                                <div class="col-sm-10">
+                                    <label >Ativo</label>
+                                    <input class="form-group" type="checkbox" id="ativo" name="Ativo" value="Ativo"
+                                    ng-model="funcionarioSelecionado.ativo">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary" ng-click="update(funcionarioSelecionado)" data-dismiss="modal">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ <!--Modal Excluir --------------------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalExcluir" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Você tem certeza?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="font-weight: bolder"> Você vai excluir o Cadastro de {{funcionarioSelecionado.nome}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                        ng-click="excluirFuncionario(funcionarios.id)" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </body>
 </html>
