@@ -1,20 +1,24 @@
-var app = angular.module('pacienteapp', []);
+var app = angular.module('atendimentoapp', []);
 
-app.controller('pacienteCtrl', function ($scope, $http) {
+app.controller('atendimentoCtrl', function ($scope, $http) {
     // Simple Post request example:    
-    var url = 'https://localhost:44397/api/Pacientes/'
+    var url = "https://localhost:44397/api/atendimentos/"
     ,config='contenttype';
 
-    $scope.pacientes = null;
-    $scope.pacienteSelecionado = {};
-    $scope.message="Pacientes";
+    var endpointPaciente = null;
+    var endpointMedicolst = null;
+    var endpointAtendentelst = null;
+    var endpointProcedimentolst = null;
+
+    $scope.atendimentos = null;
+    $scope.atendimentoSelecionado = {};
+    $scope.message="Atendimento";
    
     $scope.post = function(paciente){     
     $http.post(url, $scope.paciente).then(function (response) {    
-      //$http.get(url).then(function(response){
-        
-      //$scope.paciente = response.data;
-        reload();  
+      $http.get(url).then(function(response){
+        $scope.pacientes = response.data;
+          alert('Salvo com sucesso!');
           paciente={};
         }, function (response) {
             $scope.msg = "Service not Exists";
@@ -22,23 +26,22 @@ app.controller('pacienteCtrl', function ($scope, $http) {
 		    $scope.statustext = response.statusText;
 		    $scope.headers = response.headers();
         });
-        
+      });  
     };
 
     $http.get(url).then(function(response){
-        $scope.pacientes = response.data;
+        $scope.atendimentos = response.data;
     });    
     
-    $scope.selecionaPaciente = function (paciente) {
-        $scope.pacienteSelecionado = paciente;
+    $scope.selecionaAtendimento = function (atendimento) {
+        $scope.atendimentoSelecionado = atendimento;
     };
 
-    $scope.delete = function(paciente){
-        $http.delete("https://localhost:44397/api/Pacientes/"+paciente); 
-        paciente = {};
+    $scope.delete = function(atendimento){
+        $http.delete(url+atendimento); 
+        atendimento = {};
         alert("Excluido com sucesso!");
         reload();
-        
     };
 
     function reload()
@@ -49,7 +52,7 @@ app.controller('pacienteCtrl', function ($scope, $http) {
     $scope.update = function() {
     $http({
       method: 'PUT',
-      url: "https://localhost:44397/api/Pacientes/" + $scope.pacienteSelecionado.id,
+      url: url + $scope.pacienteSelecionado.id,
       data: $scope.pacienteSelecionado
     }).then(function successCallback(response) {  
       alert("Atualizado com sucesso!");

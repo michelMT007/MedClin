@@ -28,20 +28,36 @@ namespace APIREST.Controllers
             return await _context.Pacientes.ToListAsync();
         }
 
+        //// GET: api/Pacientes
+        //[HttpGet("{nome}")]
+        //public async Task<ActionResult<IEnumerable<Paciente>>> GetPacientess(String nome)
+        //{
+        //    //return await _context.Funcionarios.Where((funcionario) => funcionario.profissao.Contains("Atendente%")).ToListAsync(); 
+        //    return await _context.Pacientes.Where((pacientes) => pacientes.Nome.Contains(nome+"%")).ToListAsync();
+        //}
         // GET: api/Pacientes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Paciente>> GetPaciente(int id)
         {
             var paciente = await _context.Pacientes.FindAsync(id);
-
             if (paciente == null)
             {
                 return NotFound();
             }
-
             return paciente;
         }
 
+        // GET: api/Pacientes
+        [HttpGet("{nome}")]
+        public async Task<ActionResult<IEnumerable<Paciente>>> GetPacienteNome(String nome)
+        {
+            var resultado = await _context.Pacientes.Where((p) => p.Nome.Contains(nome)).ToListAsync();
+            if (resultado == null)
+            {
+                return NotFound();
+            }
+            return resultado;        
+        }
         // PUT: api/Pacientes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

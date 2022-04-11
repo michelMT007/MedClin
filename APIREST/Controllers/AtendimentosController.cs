@@ -15,7 +15,7 @@ namespace APIREST.Controllers
     public class AtendimentosController : ControllerBase
     {
         private readonly ApplicationContext _context;
-
+        
         public AtendimentosController(ApplicationContext context)
         {
             _context = context;
@@ -28,17 +28,36 @@ namespace APIREST.Controllers
             return await _context.Atendimentos.ToListAsync();
         }
 
-        // GET: api/Atendimentos/5
+        //// GET: api/Funcionarios
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<IEnumerable<Funcionario>>> GetFuncionario(int id)
+        //{
+        //    return await _context.Funcionarios.ToListAsync();
+        //}
+
+        //// GET: api/Procedimentos
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<IEnumerable<Procedimento>>> GetProcedimento(int id)
+        //{
+        //    return await _context.Procedimentos.ToListAsync();
+        //}
+
+        //// GET: api/Pacientes
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<IEnumerable<Paciente>>> GetPaciente(int id)
+        //{
+        //    return await _context.Pacientes.ToListAsync();
+        //}
+
+        // api/Atendimentos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Atendimento>> GetAtendimento(int id)
         {
             var atendimento = await _context.Atendimentos.FindAsync(id);
-
             if (atendimento == null)
             {
                 return NotFound();
             }
-
             return atendimento;
         }
 

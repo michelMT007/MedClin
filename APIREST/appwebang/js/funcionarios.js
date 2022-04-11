@@ -11,12 +11,11 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
             "endereco": "string","matricula": 0, "profissao": "string", "ativo": true*/
     
     $scope.postdata = function(funcionario){
-        
-        
         $http.post(url, $scope.funcionario).then(function (response) {    
             $http.get(url).then(function(response){
             $scope.procedimentos = response.data;
             alert('Salvo com sucesso!');
+            reload();
         }, function (response) {
             $scope.msg = "Service not Exists";
 		    $scope.statusval = response.status;

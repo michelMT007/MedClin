@@ -28,6 +28,45 @@ namespace APIREST.Controllers
             return await _context.Funcionarios.ToListAsync();
         }
 
+        ////// GET: api/Funcionarios
+        ////[HttpGet("profisao")]
+        ////public async Task<ActionResult<IEnumerable<Funcionario>>> GetFuncionarios(String prof)
+        ////{
+        ////    prof = "Medico";
+        ////    //return await _context.Pacientes.Where((pacientes) => pacientes.Nome.Contains(nome+"%")).ToListAsync()
+        ////    return await _context.Funcionarios.Where((medico) => medico.profissao.Contains(prof)).ToListAsync();
+        ////}
+        ////
+        
+        // GET: api/Funcionarios
+        [HttpGet("lstmedicos")]
+        public async Task<ActionResult<IEnumerable<Funcionario>>> GetMedicos()
+        {
+            return await _context.Funcionarios.Where((med) => med.profissao.Equals("Médico")).ToListAsync();
+        }
+
+        // GET: api/Funcionarios
+        [HttpGet("lstatendentes")]
+        public async Task<ActionResult<IEnumerable<Funcionario>>> GetAtendentes()
+        {
+            return await _context.Funcionarios.Where((med) => med.profissao.Equals("Atendente")).ToListAsync();
+        }
+        // GET: api/Funcionarios
+
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Funcionario>>> GetMedico()
+        //{ 
+        //    return await _context.Funcionarios.Where((funcionario) => funcionario.profissao.Contains("Medico%")).ToListAsync(); ;
+        //}
+
+        //// GET: api/Funcionarios
+
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Funcionario>>> GetAtendente()
+        //{
+        //    return await _context.Funcionarios.Where((funcionario) => funcionario.profissao.Contains("Atendente%")).ToListAsync(); 
+        //}
+
         // GET: api/Funcionarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Funcionario>> GetFuncionario(int id)

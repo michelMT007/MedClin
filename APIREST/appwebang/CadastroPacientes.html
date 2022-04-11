@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!-- "siscliproc", []).controller("procedimentocontroller" -->
+<html lang="en" ng-app="pacienteapp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="/js/paciente.js"></script>
+    
+    <title>Funcionarios</title>
+</head>
+
+    <body class="jumbotron" ng-controller="pacienteCtrl">    
+        <hr>
+        <div class='col-sm-offset-4 col-sm-4' >
+            <h2>{{message}}</h2>
+            
+        </div>
+        <div class='col-sm-4'>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Novo Paciente</button>
+        </div>
+        <div class=' col-sm-offset-1 col-sm-9'>
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th style="border: 0px;">Código</th> 
+                    <th style="border: 0px;">Nome</th>
+                    <th style="border: 0px;">RG</th>
+                    <th style="border: 0px;">Prontuario</th>
+                    <th style="border: 0px;">CPF</th>
+                    <th style="border: 0px;">Endereço</th>
+                    <th style="border: 0px;">Observação</th>
+                </tr>
+                </thead>
+                
+                <tbody>
+                <tr ng-repeat="paciente in pacientes">
+                    <td>{{paciente.id}}</td> 
+                    <td>{{paciente.nome}}</td>
+                    <td>{{paciente.rg}}</td>
+                    <td>{{paciente.prontoario}}</td>
+                    <td>{{paciente.cpf}}</td>
+                    <td>{{paciente.endereco}}</td>
+                    <td>{{paciente.observacao}}</td>
+                    <td>
+                        <button ng-click="selecionaPaciente(paciente)" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalEditar" >Editar</button>
+                    </td>
+                    <td>
+                        <button ng-click="selecionaPaciente(paciente)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalExcluir" >Excluir</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <hr>
+        <!--Modal Excluir --------------------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalExcluir" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Você tem certeza?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="font-weight: bolder"> Você vai excluir o Cadastro de {{pacienteSelecionado.nome}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            ng-click="delete(pacienteSelecionado.id)" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------- -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Cadastro de Paciente</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Nome</label>
+                            <div class="col-sm-10">
+                                <input id="nome" type="text" class="form-control" placeholder="Nome"
+                                ng-model="paciente.nome">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">RG</label>
+                            <div class="col-sm-10">
+                                <input id="funcionariosrg" type="text" class="form-control" placeholder="RG"
+                                ng-model="paciente.rg">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">Prontuario</label>
+                            <div class="col-sm-10">
+                                <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario"
+                                ng-model="paciente.prontoario">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">CPF</label>
+                            <div class="col-sm-10">
+                                <input id="pacientecpf" type="text" class="form-control" placeholder="CPF"
+                                ng-model="paciente.cpf">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-sm-10">
+                                <input id="pacienteendereco" type="text" class="form-control" placeholder="Endereço"
+                                ng-model="paciente.endereco">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-sm-10">
+                                <input id="funcionariosobservacao" type="text" class="form-control" placeholder="Observacao"
+                                ng-model="paciente.observacao">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button  type="submit" class="btn btn-primary" ng-click="post(paciente)" data-dismiss="modal">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- --------------Modal Editar----------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalEditar" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Editar Paciente</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Nome</label>
+                            <div class="col-sm-10">
+                                <input id="pacientenome" type="text" class="form-control" placeholder="Nome"
+                                ng-model="pacienteSelecionado.nome">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">RG</label>
+                            <div class="col-sm-10">
+                                <input id="rg" type="text" class="form-control" placeholder="RG"
+                                ng-model="pacienteSelecionado.rg">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">Prontuario</label>
+                            <div class="col-sm-10">
+                                <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario"
+                                ng-model="pacienteSelecionado.prontoario">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">CPF</label>
+                            <div class="col-sm-10">
+                                <input id="pacientecpf" type="text" class="form-control" placeholder="CPF"
+                                ng-model="pacienteSelecionado.cpf">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">Endereço</label>
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-sm-10">
+                                <input id="pacienteendereco" type="text" class="form-control" placeholder="Endereço"
+                                ng-model="pacienteSelecionado.endereco">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-1">Observação</label>
+                            <label class="control-label col-sm-2"></label>
+                            <div class="col-sm-10">
+                                <input id="funcionariosobservacao" type="text" class="form-control" placeholder="Observacao"
+                                ng-model="pacienteSelecionado.observacao">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button  type="submit" class="btn btn-primary" ng-click="update(pacienteSelecionado.id)" data-dismiss="modal">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+ <!--Modal Excluir --------------------------------------------------------------------------------------------------- -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModalExcluir" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Você tem certeza?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="font-weight: bolder"> Você vai excluir o Cadastro de {{funcionarioSelecionado.nome}}</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                        ng-click="delete(pacientes.id)" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
