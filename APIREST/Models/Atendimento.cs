@@ -9,12 +9,17 @@ namespace APIREST.Models
     {
         public int Id { get; set; }
         public DateTime DataAtendimento { get; set; }
-        public DateTime DataAgenda { get; set; }
         public int IdMedico { get; set; }
+        public string NomeMedico { get; set; }
         public int IdAtendente { get; set; }
+        public string NomeAtend { get; set; }
         public int IdProcedimentoMedico { get; set; }
+        public string DescricaoProcedmento { get; set; }
         public int IdPacienteAtendido { get; set; }
-        public Atendimento(int IdAtendente, int IdMedico, int IdProcedimento, int IdPaciente, DateTime DataAgenda) {
+        public string NomePaciente { get; set; }
+        public decimal ValorProcedimento { get; set; }
+        
+        /*public Atendimento(int IdAtendente, int IdMedico, int IdProcedimento, int IdPaciente, DateTime DataAgenda) {
             
             this.IdPacienteAtendido = IdPaciente;
             this.IdAtendente = IdAtendente;
@@ -22,8 +27,10 @@ namespace APIREST.Models
             this.IdProcedimentoMedico= IdProcedimento;
             this.DataAtendimento = DateTime.Now;
             this.DataAgenda = DataAgenda;
+        }*/
+        public Atendimento() {
+            DataAtendimento = DateTime.Now;
         }
-        public Atendimento() { }
     }
 }
 

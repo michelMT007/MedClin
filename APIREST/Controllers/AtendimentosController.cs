@@ -21,6 +21,18 @@ namespace APIREST.Controllers
             _context = context;
         }
 
+        // GET: api/Pacientes
+        [HttpGet("atendimentos/{nome}")]
+        public async Task<ActionResult<IEnumerable<Atendimento>>> GetPacienteNome(String nome)
+        {
+            var resultado = await _context.Atendimentos.Where((p) => p.NomeMedico.Contains(nome)).ToListAsync();
+            if (resultado == null)
+            {
+                return NotFound();
+            }
+            return resultado;
+        }
+
         // GET: api/Atendimentos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Atendimento>>> GetAtendimentos()

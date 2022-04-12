@@ -48,7 +48,7 @@ namespace APIREST.Controllers
         }
 
         // GET: api/Pacientes
-        [HttpGet("{nome}")]
+        [HttpGet("pacientenome/{nome}")]
         public async Task<ActionResult<IEnumerable<Paciente>>> GetPacienteNome(String nome)
         {
             var resultado = await _context.Pacientes.Where((p) => p.Nome.Contains(nome)).ToListAsync();

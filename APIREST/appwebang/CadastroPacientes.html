@@ -12,7 +12,7 @@
     <script src="angular/angular.min.js"></script>
     <script src="/js/paciente.js"></script>
     
-    <title>Funcionarios</title>
+    <title>Pacientes</title>
 </head>
 
     <body class="jumbotron" ng-controller="pacienteCtrl">    
@@ -97,14 +97,14 @@
                             <label class="control-label col-sm-2">Nome</label>
                             <div class="col-sm-10">
                                 <input id="nome" type="text" class="form-control" placeholder="Nome"
-                                ng-model="paciente.nome">
+                                ng-model="paciente.nome" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">RG</label>
                             <div class="col-sm-10">
-                                <input id="funcionariosrg" type="text" class="form-control" placeholder="RG"
-                                ng-model="paciente.rg">
+                                <input id="funcionariosrg" type="number" class="form-control" placeholder="RG"
+                                ng-model="paciente.rg" required>
                             </div>
                         </div>
                         
@@ -112,15 +112,15 @@
                             <label class="control-label col-sm-1">Prontuario</label>
                             <div class="col-sm-10">
                                 <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario"
-                                ng-model="paciente.prontoario">
+                                ng-model="paciente.prontoario" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label col-sm-1">CPF</label>
                             <div class="col-sm-10">
-                                <input id="pacientecpf" type="text" class="form-control" placeholder="CPF"
-                                ng-model="paciente.cpf">
+                                <input id="pacientecpf" type="number" class="form-control" placeholder="CPF"
+                                ng-model="paciente.cpf" required>
                             </div>
                         </div>
 
@@ -128,7 +128,7 @@
                             <label class="control-label col-sm-2"></label>
                             <div class="col-sm-10">
                                 <input id="pacienteendereco" type="text" class="form-control" placeholder="Endereço"
-                                ng-model="paciente.endereco">
+                                ng-model="paciente.endereco" required>
                             </div>
                         </div>
 
@@ -136,7 +136,7 @@
                             <label class="control-label col-sm-2"></label>
                             <div class="col-sm-10">
                                 <input id="funcionariosobservacao" type="text" class="form-control" placeholder="Observacao"
-                                ng-model="paciente.observacao">
+                                ng-model="paciente.observacao" >
                             </div>
                         </div>
 
@@ -171,14 +171,14 @@
                             <label class="control-label col-sm-2">Nome</label>
                             <div class="col-sm-10">
                                 <input id="pacientenome" type="text" class="form-control" placeholder="Nome"
-                                ng-model="pacienteSelecionado.nome">
+                                ng-model="pacienteSelecionado.nome" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">RG</label>
                             <div class="col-sm-10">
                                 <input id="rg" type="text" class="form-control" placeholder="RG"
-                                ng-model="pacienteSelecionado.rg">
+                                ng-model="pacienteSelecionado.rg" required>
                             </div>
                         </div>
                         
@@ -186,7 +186,7 @@
                             <label class="control-label col-sm-1">Prontuario</label>
                             <div class="col-sm-10">
                                 <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario"
-                                ng-model="pacienteSelecionado.prontoario">
+                                ng-model="pacienteSelecionado.prontoario" required>
                             </div>
                         </div>
                         
@@ -194,7 +194,7 @@
                             <label class="control-label col-sm-1">CPF</label>
                             <div class="col-sm-10">
                                 <input id="pacientecpf" type="text" class="form-control" placeholder="CPF"
-                                ng-model="pacienteSelecionado.cpf">
+                                ng-model="pacienteSelecionado.cpf" required>
                             </div>
                         </div>
 
@@ -203,7 +203,7 @@
                             <label class="control-label col-sm-2"></label>
                             <div class="col-sm-10">
                                 <input id="pacienteendereco" type="text" class="form-control" placeholder="Endereço"
-                                ng-model="pacienteSelecionado.endereco">
+                                ng-model="pacienteSelecionado.endereco" required>
                             </div>
                         </div>
 

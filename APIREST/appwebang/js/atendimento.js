@@ -2,18 +2,57 @@ var app = angular.module('atendimentoapp', []);
 
 app.controller('atendimentoCtrl', function ($scope, $http) {
     // Simple Post request example:    
-    var url = "https://localhost:44397/api/atendimentos/"
-    ,config='contenttype';
+    var url = "https://localhost:44397/api/atendimentos/";
 
-    var endpointPaciente = null;
-    var endpointMedicolst = null;
-    var endpointAtendentelst = null;
-    var endpointProcedimentolst = null;
-
+    var endpointPaciente = "https://localhost:44397/api/Pacientes/pacientenome/";
+    var endpointMedicolst = "https://localhost:44397/api/Funcionarios/lstmedicos";
+    var endpointAtendentelst = "https://localhost:44397/api/Funcionarios/lstatendentes";
+    var endpointProcedimentolst = "https://localhost:44397/api/Procedimentos";
+    
+    $scope.medicos = null;
+    $scope.pacientesnome = null;
+    $scope.atendenteslst = null;
+    $scope.procedimentos = null;
     $scope.atendimentos = null;
+  
+    $scope.medicoSelecionado = {};
+    $scope.pacientes = null;
+    $scope.pacienteSelecionado = {};
+
+    $scope.messageMed="Médicos";
+    $scope.messagePaciente="Paciente";
+    $scope.messageAtendente="Atendente";
+
     $scope.atendimentoSelecionado = {};
     $scope.message="Atendimento";
-   
+    
+    /**
+      $scope.listamed = $http.get(endpointMedicolst).then(function(response){
+      $scope.medicos=response.data;
+    });*/
+
+
+  
+    $http.get(endpointProcedimentolst).then(function(response){
+        $scope.procedimento = response.data;
+    });
+    
+     
+    $scope.GetPacienteNome = function(nome){
+            $http.get(endpointPaciente+nome).then(function(response){
+            $scope.pacientesnome = response.data;
+        });
+    };
+    
+    $http.get(endpointAtendentelst).then(function(response){
+        $scope.atendenteslst =response.data;
+    });
+    
+    
+    $http.get(endpointMedicolst).then(function(response){
+        $scope.medicos=response.data;
+    });
+    
     $scope.post = function(paciente){     
     $http.post(url, $scope.paciente).then(function (response) {    
       $http.get(url).then(function(response){

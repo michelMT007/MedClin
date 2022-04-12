@@ -9209,19 +9209,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\miche\\.nuget\\packages\\": {}
+    "C:\\Users\\michel.costa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj",
+      "projectUniqueName": "D:\\system\\APIRESTATUAL\\APIREST\\APIREST\\APIREST.csproj",
       "projectName": "APIREST",
-      "projectPath": "D:\\siscli\\APIREST\\APIREST\\APIREST.csproj",
-      "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
-      "outputPath": "D:\\siscli\\APIREST\\APIREST\\obj\\",
+      "projectPath": "D:\\system\\APIRESTATUAL\\APIREST\\APIREST\\APIREST.csproj",
+      "packagesPath": "C:\\Users\\michel.costa\\.nuget\\packages\\",
+      "outputPath": "D:\\system\\APIRESTATUAL\\APIREST\\APIREST\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\michel.costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9310,7 +9310,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   },
