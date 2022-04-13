@@ -2,7 +2,7 @@ var app = angular.module('atendimentoapp', []);
 
 app.controller('atendimentoCtrl', function ($scope, $http) {
     // Simple Post request example:    
-    var url = "https://localhost:44397/api/atendimentos/";
+    var url = "https://localhost:44397/api/Atendimentos/";
 
     var endpointPaciente = "https://localhost:44397/api/Pacientes/pacientenome/";
     var endpointMedicolst = "https://localhost:44397/api/Funcionarios/lstmedicos";
@@ -76,8 +76,8 @@ app.controller('atendimentoCtrl', function ($scope, $http) {
         $scope.atendimentoSelecionado = atendimento;
     };
 
-    $scope.delete = function(atendimento){
-        $http.delete(url+atendimento); 
+    $scope.excluirAtendimento = function(atendimento){
+        $http.delete(url+atendimento.id); 
         atendimento = {};
         alert("Excluido com sucesso!");
         reload();

@@ -746,3 +746,5 @@ D:\system\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.dll
 D:\system\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\ref\APIREST.dll
 D:\system\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.pdb
 D:\system\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.genruntimeconfig.cache
+D:\system\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\OrchardCore.Localization.Abstractions.dll
+D:\system\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\OrchardCore.Localization.Core.dll

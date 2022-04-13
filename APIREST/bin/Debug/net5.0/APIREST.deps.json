@@ -41,6 +41,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "5.0.12",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "5.0.2",
           "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": "5.0.2",
+          "OrchardCore.Localization.Core": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "System.Collections": "4.3.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -1263,6 +1264,31 @@
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "OrchardCore.Localization.Abstractions/1.0.0": {
+        "runtime": {
+          "lib/net5.0/OrchardCore.Localization.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/OrchardCore.Localization.Abstractions.dll": {}
+        }
+      },
+      "OrchardCore.Localization.Core/1.0.0": {
+        "dependencies": {
+          "OrchardCore.Localization.Abstractions": "1.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/OrchardCore.Localization.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/OrchardCore.Localization.Core.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -4438,6 +4464,20 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "OrchardCore.Localization.Abstractions/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xE7dUUj5UKFyx9Yf0ITuf6nNy3lIOsrhchsy3cR70nrNZUl83TAH2TfKovguSP3CdKdt+b9JSTGmbk5DfrImQA==",
+      "path": "orchardcore.localization.abstractions/1.0.0",
+      "hashPath": "orchardcore.localization.abstractions.1.0.0.nupkg.sha512"
+    },
+    "OrchardCore.Localization.Core/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bJabaUcB8nI2h8j0151dcmvZMIaErDbldrxCOuD1JZnwbor6oz0FqLWv2YFn9ithKrGB4cd1niIyT/7t3HxcDA==",
+      "path": "orchardcore.localization.core/1.0.0",
+      "hashPath": "orchardcore.localization.core.1.0.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

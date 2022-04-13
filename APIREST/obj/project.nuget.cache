@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eydb9+p6htyKCAmTfPHFGbMv6EcG+98/1umBWQk2jf1ceOPFJ4YbuHLCJbA2E+/6juhv9+Sps464zvlY9+ZucA==",
+  "dgSpecHash": "f6P55Xm6wkBc1rGfDBl413GuBkDmy+BPlEYkhEW826R2ld3ohEXjy+4BI5mlIwyWwHPnuP5PLusi88pTc+gmyA==",
   "success": true,
   "projectFilePath": "D:\\system\\APIRESTATUAL\\APIREST\\APIREST\\APIREST.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,8 @@
     "C:\\Users\\michel.costa\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\michel.costa\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\michel.costa\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
+    "C:\\Users\\michel.costa\\.nuget\\packages\\orchardcore.localization.abstractions\\1.0.0\\orchardcore.localization.abstractions.1.0.0.nupkg.sha512",
+    "C:\\Users\\michel.costa\\.nuget\\packages\\orchardcore.localization.core\\1.0.0\\orchardcore.localization.core.1.0.0.nupkg.sha512",
     "C:\\Users\\michel.costa\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\michel.costa\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\michel.costa\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

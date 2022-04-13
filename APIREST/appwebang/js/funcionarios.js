@@ -46,10 +46,10 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
     }
    
     $scope.update = function() {
-    $http({
-      method: 'PUT',
-      url: url + $scope.funcionarioSelecionado.id,
-      data: $scope.funcionarioSelecionado
+      $http({
+        method: 'PUT',
+        url: url + $scope.funcionarioSelecionado.id,
+        data: $scope.funcionarioSelecionado
     }).then(function successCallback(response) {
         reload();
         $scope.procedimentoSelecionado ={};

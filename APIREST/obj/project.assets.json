@@ -1073,6 +1073,33 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "OrchardCore.Localization.Abstractions/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/OrchardCore.Localization.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/OrchardCore.Localization.Abstractions.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "OrchardCore.Localization.Core/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "OrchardCore.Localization.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "lib/net5.0/OrchardCore.Localization.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/OrchardCore.Localization.Core.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -4599,6 +4626,36 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "OrchardCore.Localization.Abstractions/1.0.0": {
+      "sha512": "xE7dUUj5UKFyx9Yf0ITuf6nNy3lIOsrhchsy3cR70nrNZUl83TAH2TfKovguSP3CdKdt+b9JSTGmbk5DfrImQA==",
+      "type": "package",
+      "path": "orchardcore.localization.abstractions/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/OrchardCore.Localization.Abstractions.dll",
+        "lib/net5.0/OrchardCore.Localization.Abstractions.xml",
+        "lib/netcoreapp3.1/OrchardCore.Localization.Abstractions.dll",
+        "lib/netcoreapp3.1/OrchardCore.Localization.Abstractions.xml",
+        "orchardcore.localization.abstractions.1.0.0.nupkg.sha512",
+        "orchardcore.localization.abstractions.nuspec"
+      ]
+    },
+    "OrchardCore.Localization.Core/1.0.0": {
+      "sha512": "bJabaUcB8nI2h8j0151dcmvZMIaErDbldrxCOuD1JZnwbor6oz0FqLWv2YFn9ithKrGB4cd1niIyT/7t3HxcDA==",
+      "type": "package",
+      "path": "orchardcore.localization.core/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/OrchardCore.Localization.Core.dll",
+        "lib/net5.0/OrchardCore.Localization.Core.xml",
+        "lib/netcoreapp3.1/OrchardCore.Localization.Core.dll",
+        "lib/netcoreapp3.1/OrchardCore.Localization.Core.xml",
+        "orchardcore.localization.core.1.0.0.nupkg.sha512",
+        "orchardcore.localization.core.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -9204,6 +9261,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.12",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Microsoft.VisualStudio.Web.CodeGenerators.Mvc >= 5.0.2",
+      "OrchardCore.Localization.Core >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "System.Collections >= 4.3.0"
     ]
@@ -9282,6 +9340,10 @@
           "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
             "target": "Package",
             "version": "[5.0.2, )"
+          },
+          "OrchardCore.Localization.Core": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

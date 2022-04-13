@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="funcionarioapp" >
+<head>
+    <meta charset="UTF-8">
+    <title>Funcionario</title>
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/app.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="/APIREST/appwebang/js/funcionarios.js"></script>
+</head>
+    <body>
+        <div ng-controller="funcionarioCtrl" >
+            <h3>Funcionarios</h3>
+            <H6>{{message}}</H6>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col" ng-model="funcionario.Id">Código</th>
+                    <th scope="col" ng-model="funcionario.nome">Primeiro</th>
+                    <th scope="col">Último</th>
+                    <th scope="col">Nickname</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+        
+                  
+                </tbody>
+              </table>
+        </div>
+        <div id="modal-insert" class="jumbotron">
+            <h3 class="display-4">Cadastro de Funcionario</h3>
+            <form class="" name="mainForm" ng-submit="send()">
+                <div >
+                    <label>Nome</label><br/>
+                    <input type="text" ng-model="Funcionario.Nome" name="nome" required/> <br/>
+                </div>
+                <div>
+                    <label>Função</label><br/>
+                    <select id="Funcionario.profissao" name="funcao">
+                        <option value="atendente">Atendente</option>
+                        <option value="medico">Médico</option> 
+                    </select>
+                </div>
+                <div>
+                    <label>RG</label><br/>
+                    <input type="text" ng-model="Funcionario.Rg" name="rg" required/> <br/>
+                </div>
+                <div>
+                    <label>CPF</label><br/>
+                    <input type="text" ng-model="Funcionario.Cpf" name="cpf" required/> <br/>
+                </div>
+                
+                <div>
+                    <label>Endereço</label><br/>
+                    <input type="text" ng-model="Funcionario.Endereco" name="Endereco" required/> <br/>
+                </div>
+
+                <div>
+                    <label>Ativo</label>
+                    <input type="checkbox" id="ativo" name="Ativo" value="Ativo">
+                </div>
+                
+                <div class="col-md-6" ng-show="btnInserir">
+                    <input type="button" class="btn btn-primary" value="Salvar" ng-disabled="inserirForm.$invalid" ng-click="adicionarfuncionario()">
+                </div>
+            </form>
+        </div>
+
+        <div >
+             
+        </div>
+    </body>
+</html>

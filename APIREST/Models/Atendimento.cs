@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -29,7 +30,9 @@ namespace APIREST.Models
             this.DataAgenda = DataAgenda;
         }*/
         public Atendimento() {
-            DataAtendimento = DateTime.Now;
+
+           var dt = DateTime.Parse(DateTime.Now.ToString()).ToString("dd-MM-yyyy HH:mm:ss");
+            DataAtendimento = DateTime.Parse(dt);
         }
     }
 }

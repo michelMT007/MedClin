@@ -20,6 +20,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc" Version="5.0.2" />
 	<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
 	<PackageReference Include="System.Collections" Version="4.3.0" />
+	<PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="appwebang" />

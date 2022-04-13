@@ -54,14 +54,14 @@ app.controller('experienciaCtrl', function ($scope, $http) {
     $scope.updateProcedimento = function() {
     $http({
       method: 'PUT',
-      url: 'https://localhost:44397/api/procedimentos/' + $scope.procedimentoSelecionado.id,
+      url: 'https://localhost:44397/api/procedimentos/'+$scope.procedimentoSelecionado.id,
       data: $scope.procedimentoSelecionado
     }).then(function successCallback(response) {
         reload();
         $scope.procedimentoSelecionado ={};
       alert("Procedimento Atualizado com sucesso!");
     }, function errorCallback(response) {
-      alert("Houve algum erro de conectividade!");
+      alert("Operação não concluída!");
     });
   };
 });

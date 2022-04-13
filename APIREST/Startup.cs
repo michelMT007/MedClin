@@ -2,7 +2,9 @@ using APIREST.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +32,24 @@ namespace APIREST
         [Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc()
+        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+
+            services.AddPortableObjectLocalization();
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("pt-BR")   
+            };
+
+                options.DefaultRequestCulture = new RequestCulture("pt-BR");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+            /****************************************************************************/
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer());
             services.AddControllers();
             services.AddMvc();
@@ -77,7 +98,7 @@ namespace APIREST
             app.UseRouting();
             app.UseAuthorization();
             app.UseStaticFiles();
-            
+            app.UseRequestLocalization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

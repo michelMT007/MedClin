@@ -1,31 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="siscli">
+<html lang="pt-br" ng-app="indexApp">   
 <head>
     <meta charset="UTF-8">
-    
-    <title>Angular SISCLI</title>
+    <title>SISCLI</title>
     <script src="angular/angular.min.js"></script>
     <script src="angular/angular.js"></script>
-    <script src="/angular/app.js"></script>
-    
     <link rel="stylesheet" href="content/bootstrap.min.css">
-    <script src="angular/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
+    
+    <script src="/js/index.js"></script>
     
 </head>
-<body>
-    <div class="jumbotron">
-        <div ng-controller="funcionariocontroller">
-            <h4>{{message}}</h4>
-        </div>
-
-        <h1>Hello Angular - SIS CLI</h1>
+<body ng-controller="indexCtrl" class="jumbotron ">
+    <h4>Sistema de Controle de Clínica<h4><hr>
+    <div >
+        
         <div >
-            <h6>Name : <input type="text" ng-model="name"></h6>
-            <h6>Idade : <input type="text" ng-model="idade"></h6>
-
-            <h6>Nome: {{name}}</h6>
-            <h6>Idade: {{idade}}</h6>
+           
         </div>
+
+        <ul class="nav flex-column">
+            
+            <li class="nav-item">
+                <h4 class="nav-link active">Cadastros<h4></h4>
+              <a class="nav-link active" href="/CadastroFuncionario.html"  >Funcionarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/CadastroPacientes.html"  >Pessoas</a>
+              </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="/Procedimentos.html">Procedimentos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link active" href="/CadastroAtendimentos.html">Atendimentos</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="/ConcultaAtendimentos.html">Relatório</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link disabled" href="http://sistema.univag.teste.edu.br/Login.aspx">WEB</a>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+    <div>
+        <div class="text-center">
+            <img src="/img/logo-univag-min.jpg" class="rounded" alt="300">
+          </div>
     </div>
 </body>
 </html>

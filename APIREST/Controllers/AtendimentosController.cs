@@ -21,7 +21,7 @@ namespace APIREST.Controllers
             _context = context;
         }
 
-        // GET: api/Pacientes
+        // GET: 
         [HttpGet("atendimentos/{nome}")]
         public async Task<ActionResult<IEnumerable<Atendimento>>> GetPacienteNome(String nome)
         {
