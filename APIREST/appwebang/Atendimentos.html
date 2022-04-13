@@ -75,7 +75,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button  type="submit" class="btn btn-primary" ng-click="postdata(funcionario)" data-dismiss="modal">Salvar</button>
+                                <button  type="submit" class="btn btn-primary" ng-click="postdata(atendimento)" data-dismiss="modal">Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -110,7 +110,7 @@
                                 language: 'pt-br',
                             });
                         </script><br>
-                        <button type="button" ng-click="CriaAtendimento(medico, atendente, procedimento, paciente)"  class="btn btn-primary"  >Salvar Atendimeto</button>
+                        <button type="button" ng-click="CriaAtendimento(medico, atendente, procedimento, paciente)" data-toggle="modal" data-target="#myModalConfirma" class="btn btn-primary"  >Salvar Atendimeto</button>
                         
                     
                     </div>
@@ -148,7 +148,7 @@
 
                     
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="#myModalConfirma" role="dialog">
                 <div class="modal-dialog">
 
                 <!-- Modal content-->

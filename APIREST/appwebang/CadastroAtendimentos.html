@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    
+
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker1').datetimepicker();
@@ -39,6 +39,7 @@
                     <h4 class="modal-title">Cadastro de Atendimentos</h4>
                 </div>
                 <div class="modal-body">
+                    <h3>Ola</h3>
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
                             <label class="control-label col-sm-2">Médico</label>
@@ -46,6 +47,7 @@
                                 <select ng-init="listamed"  ng-model="medico" ng-options="y.nome for (x, y) in medicos">
                                     <option value="">  Selecione médico </option>
                                 </select>
+                                <p>{{medico.nome}}</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -84,7 +86,7 @@
                                 <script>
                                     $('#datepicker').datepicker({
                                         uiLibrary: 'bootstrap4',
-                                        format: 'dd/mm/yyyy',                
+                                        format: 'dd/MM/yyyy',                
                                         language: 'pt-br',
                                     });
                                 </script><br>    
@@ -92,8 +94,9 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button  type="submit" class="btn btn-primary" ng-click="-----------" data-dismiss="modal">Salvar</button>
+                            <div class="col-sm-offset-2 col-sm-10">                                                                                  <!--  dadosatendimento  -->
+                                <button  type="submit" class="btn btn-primary" ng-click="CriaAtendimento(medico, atendente, procedimento, paciente)" 
+                                data-toggle="modal" data-target="#myModal1"   >Salvar</button>
                             </div>
                         </div>
                     </form>
@@ -105,6 +108,34 @@
             </div>
         </div>
         <!-------------------------------------------------------------------------------------------------------------------------------------------- -->
+        
+            <!-- Modal -->
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Confirmar Atendimento</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal" role="form">
+                                <h3></h3>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button  type="submit" class="btn btn-primary" ng-click="postdata()" data-dismiss="modal">Sim</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <!-------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
         <h1>Atendimentos</h1>
         
         <div>
@@ -167,7 +198,7 @@
 
                     -->
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="myModal1" role="dialog">
                 <div class="modal-dialog">
 
                 <!-- Modal content-->
