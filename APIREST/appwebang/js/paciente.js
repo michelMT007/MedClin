@@ -2,25 +2,24 @@ var app = angular.module('pacienteapp', []);
 
 app.controller('pacienteCtrl', function ($scope, $http) {
     // Simple Post request example:    
-    var url = 'https://localhost:44397/api/Pacientes/'
-    ,config='contenttype';
+    var url = 'https://localhost:44397/api/Pacientes/';
 
     $scope.pacientes = null;
     $scope.pacienteSelecionado = {};
     $scope.message="Pacientes";
    
-    $scope.post = function(paciente){     
-    $http.post(url, $scope.paciente).then(function (response) {    
-      //$http.get(url).then(function(response){
-        
-      //$scope.paciente = response.data;
-        reload();  
+    $scope.post = function(paciente){    
+       
+      $http.post(url, paciente).then(function (response) {    
+        console.log(response.data);  
           paciente={};
+          alert("Adicionado com sucesso!");
+          reload();
         }, function (response) {
-            $scope.msg = "Service not Exists";
-		    $scope.statusval = response.status;
-		    $scope.statustext = response.statusText;
-		    $scope.headers = response.headers();
+          $scope.msg = "Service not Exists";
+		      $scope.statusval = response.status;
+		      $scope.statustext = response.statusText;
+		      $scope.headers = response.headers();
         });
         
     };

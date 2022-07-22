@@ -28,15 +28,6 @@ namespace APIREST.Controllers
             return await _context.Funcionarios.ToListAsync();
         }
 
-        ////// GET: api/Funcionarios
-        ////[HttpGet("profisao")]
-        ////public async Task<ActionResult<IEnumerable<Funcionario>>> GetFuncionarios(String prof)
-        ////{
-        ////    prof = "Medico";
-        ////    //return await _context.Pacientes.Where((pacientes) => pacientes.Nome.Contains(nome+"%")).ToListAsync()
-        ////    return await _context.Funcionarios.Where((medico) => medico.profissao.Contains(prof)).ToListAsync();
-        ////}
-        ////
         
         // GET: api/Funcionarios
         [HttpGet("lstmedicos")]
@@ -117,9 +108,15 @@ namespace APIREST.Controllers
         [HttpPost]
         public async Task<ActionResult<Funcionario>> PostFuncionario(Funcionario funcionario)
         {
+            if (string.IsNullOrEmpty(funcionario.Nome))
+                throw new ArgumentException("O nome não foi informado corretamente");
+            if (string.IsNullOrEmpty(funcionario.Cpf))
+                throw new ArgumentException("O CPF não foi informado corretamente");
+            if (string.IsNullOrEmpty(funcionario.Rg))
+                throw new ArgumentException("O RG não foi informado corretamente");
+
             _context.Funcionarios.Add(funcionario);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetFuncionario", new { id = funcionario.Id }, funcionario);
         }
 
@@ -132,7 +129,6 @@ namespace APIREST.Controllers
             {
                 return NotFound();
             }
-
             _context.Funcionarios.Remove(funcionario);
             await _context.SaveChangesAsync();
 

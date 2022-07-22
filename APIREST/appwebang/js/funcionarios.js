@@ -2,8 +2,8 @@ var app = angular.module('funcionarioapp', []);
 
 app.controller('funcionarioCtrl', function ($scope, $http) {
     // Simple Post request example:    
-    var url = 'https://localhost:44397/api/funcionarios/'
-    ,config='contenttype';
+    var url = 'https://localhost:44397/api/Funcionarios/';
+
     $scope.funcionarios = null;
     $scope.funcionarioSelecionado = {};
     /*
@@ -11,17 +11,20 @@ app.controller('funcionarioCtrl', function ($scope, $http) {
             "endereco": "string","matricula": 0, "profissao": "string", "ativo": true*/
     
     $scope.postdata = function(funcionario){
-        $http.post(url, $scope.funcionario).then(function (response) {    
+        $http.post(url, $scope.funcionario).then(function (response) {  
+            console.log("ERRO Funcionarios - postdata()  1 ------> "+response);  
             $http.get(url).then(function(response){
             $scope.procedimentos = response.data;
+            console.log("ERRO Funcionarios - postdata()  2 ------> "+response);
             alert('Salvo com sucesso!');
             reload();
         }, function (response) {
+            console.log("ERRO Funcionarios - postdata()  3 ------> "+response.data);
             $scope.msg = "Service not Exists";
-		    $scope.statusval = response.status;
-		    $scope.statustext = response.statusText;
-		    $scope.headers = response.headers();
-        });
+            $scope.statusval = response.status;
+            $scope.statustext = response.statusText;
+            $scope.headers = response.headers();
+            });
         });  
     };
 

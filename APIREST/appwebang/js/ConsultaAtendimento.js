@@ -3,6 +3,7 @@ var app = angular.module("consultaatendimentoapp", []);
 app.controller("consultaatendimentoCtrl", function ($scope, $http) {
     
     var endpointAtendimentos = "https://localhost:44397/api/Atendimentos/atendimentos/";
+    var endpointAtendimentosOrderByData = "https://localhost:44397/api/Atendimentos/atendimentosorderby/";
 
     $scope.dados = {};
     $scope.messageMed="Médicos";
@@ -17,7 +18,7 @@ app.controller("consultaatendimentoCtrl", function ($scope, $http) {
     $scope.getMedico = function(nome) {
         $http({
           method: 'GET',
-          url: endpointAtendimentos+nome,
+          url: endpointAtendimentosOrderByData+nome,
           //data: 
       }).then(function successCallback(response) {
           //reload();

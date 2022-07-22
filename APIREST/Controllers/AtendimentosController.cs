@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIREST.Context;
 using APIREST.Models;
+using System.Net;
 
 namespace APIREST.Controllers
 {
@@ -33,6 +34,21 @@ namespace APIREST.Controllers
             return resultado;
         }
 
+        // GET: 
+        [HttpGet("atendimentosorderby/{nome}")]
+        public async Task<ActionResult<IEnumerable<Atendimento>>> GetMedicoNomeOrderBy(String nome)
+        { 
+            var  resultado = from a in _context.Atendimentos where (a.NomeMedico.Contains(nome)) orderby a.DataAtendimento descending select a;
+            if(resultado != null)
+            {
+                return resultado.ToList();
+            }
+            else
+            {
+                return NotFound("Campo nome do vazio, preencher o campo");
+            }    
+        }
+
         // GET: api/Atendimentos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Atendimento>>> GetAtendimentos()
@@ -40,27 +56,7 @@ namespace APIREST.Controllers
             return await _context.Atendimentos.ToListAsync();
         }
 
-        //// GET: api/Funcionarios
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<IEnumerable<Funcionario>>> GetFuncionario(int id)
-        //{
-        //    return await _context.Funcionarios.ToListAsync();
-        //}
-
-        //// GET: api/Procedimentos
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<IEnumerable<Procedimento>>> GetProcedimento(int id)
-        //{
-        //    return await _context.Procedimentos.ToListAsync();
-        //}
-
-        //// GET: api/Pacientes
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<IEnumerable<Paciente>>> GetPaciente(int id)
-        //{
-        //    return await _context.Pacientes.ToListAsync();
-        //}
-
+       
         // api/Atendimentos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Atendimento>> GetAtendimento(int id)
@@ -109,6 +105,11 @@ namespace APIREST.Controllers
         [HttpPost]
         public async Task<ActionResult<Atendimento>> PostAtendimento(Atendimento atendimento)
         {
+            if (string.IsNullOrEmpty(atendimento.NomeMedico))
+                throw new ArgumentException("O nome do médico não foi informado corretamente");
+            if (string.IsNullOrEmpty(atendimento.NomeAtend))
+                throw new ArgumentException("O nome do atendente não foi informado corretamente");
+
             _context.Atendimentos.Add(atendimento);
             await _context.SaveChangesAsync();
 

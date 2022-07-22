@@ -11,7 +11,7 @@
     <script src="angular/angular.js"></script>
     <script src="angular/angular.min.js"></script>
     <script src="/js/paciente.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="/css/erro.css">
     <title>Pacientes</title>
 </head>
 
@@ -24,6 +24,8 @@
         <div class='col-sm-4'>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Novo Paciente</button>
         </div>
+        <hr>
+        <hr>
         <div class=' col-sm-offset-1 col-sm-9'>
             <table class="table table-hover table-striped">
                 <thead>
@@ -92,35 +94,42 @@
                     <h4 class="modal-title">Cadastro de Paciente</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" role="form" name="form" >
                         <div class="form-group">
                             <label class="control-label col-sm-2">Nome</label>
                             <div class="col-sm-10">
-                                <input id="nome" type="text" class="form-control" placeholder="Nome"
-                                ng-model="paciente.nome" required>
+                                <input id="paciente.nome" name="nome" type="text" class="form-control" ng-model="paciente.nome" required >
+                                <span class="erro" ng-if="form.nome.$touched && form.nome.$invalid">
+                                    Preencha o campo nome corretamente.</span>
                             </div>
+                            
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2">RG</label>
                             <div class="col-sm-10">
-                                <input id="funcionariosrg" type="number" class="form-control" placeholder="RG"
-                                ng-model="paciente.rg" required>
+                                <input id="funcionariosrg" type="text" class="form-control" placeholder="RG" 
+                                name="rg" ng-model="paciente.rg" required>
+                                <span class="erro" ng-if="form.rg.$touched && form.rg.$invalid">
+                                    Preencha o campo RG corretamente.</span>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label col-sm-1">Prontuario</label>
                             <div class="col-sm-10">
-                                <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario"
-                                ng-model="paciente.prontoario" required>
+                                <span class="error" ng-if="form.paciente.prontoario.$touched && form.paciente.prontoario.$invalid">Campo é obrigatorio</span>
+                                <input id="pacienteprontoario" type="text" class="form-control" placeholder="Prontoario" ng-model="paciente.prontoario" >
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label class="control-label col-sm-1">CPF</label>
                             <div class="col-sm-10">
-                                <input id="pacientecpf" type="number" class="form-control" placeholder="CPF"
-                                ng-model="paciente.cpf" required>
+                                <input id="pacientecpf" type="text" class="form-control" placeholder="CPF"
+                                name="cpf" ng-model="paciente.cpf" required>
+                                <span class="erro" ng-if="form.cpf.$touched && form.cpf.$invalid">
+                                    Preencha o campo CPF corretamente.</span>
+                         
                             </div>
                         </div>
 
@@ -142,14 +151,15 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button  type="submit" class="btn btn-primary" ng-click="post(paciente)" data-dismiss="modal">Salvar</button>
+                                <input ng-disabled="form.nome.$invalid || form.rg.$invalid || form.cpf.$invalid" type="submit" class="btn btn-primary"  ng-click="post(paciente)" data-dismiss="modal">Salvar</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" type="submit" ng-disabled="form.paciente.nome.$invalid">Fechar</button>
                 </div>
+                
             </div>
             </div>
         </div>
@@ -170,8 +180,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2">Nome</label>
                             <div class="col-sm-10">
-                                <input id="pacientenome" type="text" class="form-control" placeholder="Nome"
-                                ng-model="pacienteSelecionado.nome" required>
+                                <input id="pacientenome" type="text" class="form-control" placeholder="Nome" ng-model="pacienteSelecionado.nome" required>
                             </div>
                         </div>
                         <div class="form-group">

@@ -22,12 +22,13 @@ app.controller('experienciaCtrl', function ($scope, $http) {
             $http.get("https://localhost:44397/api/procedimentos").then(function(response){
             $scope.procedimentos = response.data;
             alert('Salvo com sucesso!');
+            data = {};
         }, function (response) {
-            $scope.msg = "Service not Exists";
-		    $scope.statusval = response.status;
-		    $scope.statustext = response.statusText;
-		    $scope.headers = response.headers();
-        });
+                $scope.msg = "Service not Exists";
+                $scope.statusval = response.status;
+                $scope.statustext = response.statusText;
+                $scope.headers = response.headers();
+            });
         });  
     };
 

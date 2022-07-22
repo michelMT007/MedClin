@@ -28,14 +28,6 @@ namespace APIREST.Controllers
             return await _context.Pacientes.ToListAsync();
         }
 
-        //// GET: api/Pacientes
-        //[HttpGet("{nome}")]
-        //public async Task<ActionResult<IEnumerable<Paciente>>> GetPacientess(String nome)
-        //{
-        //    //return await _context.Funcionarios.Where((funcionario) => funcionario.profissao.Contains("Atendente%")).ToListAsync(); 
-        //    return await _context.Pacientes.Where((pacientes) => pacientes.Nome.Contains(nome+"%")).ToListAsync();
-        //}
-        // GET: api/Pacientes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Paciente>> GetPaciente(int id)
         {
@@ -63,7 +55,7 @@ namespace APIREST.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPaciente(int id, Paciente paciente)
         {
-            if (id != paciente.Id)
+            if (id != paciente.Id || paciente == null)
             {
                 return BadRequest();
             }
@@ -85,7 +77,6 @@ namespace APIREST.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
@@ -94,6 +85,15 @@ namespace APIREST.Controllers
         [HttpPost]
         public async Task<ActionResult<Paciente>> PostPaciente(Paciente paciente)
         {
+            if (string.IsNullOrEmpty(paciente.Nome))
+                throw new ArgumentException("O nome do médico não foi informado corretamente");
+
+            if (string.IsNullOrEmpty(paciente.Rg))
+                throw new ArgumentException("O RG da Paciente não foi informado corretamente");
+            
+            if (string.IsNullOrEmpty(paciente.Cpf))
+                throw new ArgumentException("O RG da Paciente não foi informado corretamente");
+
             _context.Pacientes.Add(paciente);
             await _context.SaveChangesAsync();
 
@@ -104,12 +104,15 @@ namespace APIREST.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePaciente(int id)
         {
+
             var paciente = await _context.Pacientes.FindAsync(id);
             if (paciente == null)
             {
                 return NotFound();
-            }
 
+                throw new ArgumentException("O ID da Paciente não foi informado corretamente");
+
+            }
             _context.Pacientes.Remove(paciente);
             await _context.SaveChangesAsync();
 

@@ -53,6 +53,10 @@ namespace APIREST.Controllers
             {
                 return BadRequest();
             }
+            if (id.Equals(null) || procedimento.Id.Equals(null))
+            {
+                throw new ArgumentException("O Código do procedimento nao foi preenchido corretamente.");
+            }
 
             _context.Entry(procedimento).State = EntityState.Modified;
 
@@ -80,6 +84,11 @@ namespace APIREST.Controllers
         [HttpPost]
         public async Task<ActionResult<Procedimento>> PostProcedimento(Procedimento procedimento)
         {
+            if (string.IsNullOrEmpty(procedimento.Descricao))
+                throw new ArgumentException("O nome do médico não foi informado corretamente");
+            if (procedimento == null)
+                throw new ArgumentException("O valor não foi informado corretamente");
+
             _context.Procedimentos.Add(procedimento);
             await _context.SaveChangesAsync();
 
@@ -95,7 +104,6 @@ namespace APIREST.Controllers
             {
                 return NotFound();
             }
-
             _context.Procedimentos.Remove(procedimento);
             await _context.SaveChangesAsync();
 

@@ -12,6 +12,8 @@
     <script src="angular/angular.min.js"></script>
     <script src="/js/funcionarios.js"></script>
     
+    <link rel="stylesheet" type="text/css" href="/css/erro.css">
+    
     <title>Funcionarios</title>
 </head>
 
@@ -88,62 +90,77 @@
                     <h4 class="modal-title">Cadastro de Funcionarios</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" role="form">
+                    <form class="form-horizontal" name="form" role="form">
                         <div class="form-group">
                             <label class="control-label col-sm-2">Nome</label>
                             <div class="col-sm-10">
-                                <input id="funcionarionome" type="text" class="form-control" placeholder="Nome"
-                                ng-model="funcionario.nome">
+                                <input id="funcionarionome" name="nome" type="text" class="form-control" placeholder="Nome"
+                                ng-model="funcionario.nome" required>
+                                <span class="erro" ng-if="form.nome.$touched && form.nome.$invalid" >
+                                    Preencha o campo nome corretamente.</span>
+                                </div>  
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2">RG</label>
-                            <div class="col-sm-10">
-                                <input id="funcionariosrg" type="number" class="form-control" placeholder="RG"
-                                ng-model="funcionario.rg">
-                            </div>
-                        </div>
                         
-                        <div class="form-group">
-                            <label class="control-label col-sm-1">CPF</label>
-                            <div class="col-sm-10">
-                                <input id="funcionariocpf" type="number" class="form-control" placeholder="CPF"
-                                ng-model="funcionario.cpf">
-                            </div>
-                        </div>
 
-                        <div class="form-group" class="col-sm-5">
-                            <label class="control-label col-sm-1"> Profissão</label><br/>
-                            <div >
-                                <select id="funcionario.profissao" ng-model="funcionario.profissao" 
-                                    name="funcao" class="form-control">
-                                    <option value="Atendente">Atendente</option>
-                                    <option value="Médico">Médico</option> 
-                                </select>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">RG</label>
+                                <div class="col-sm-10">
+                                    <input id="funcionariosrg" type="text" class="form-control" placeholder="RG"
+                                    name="rg" ng-model="funcionario.rg" required>
+                                    <span class="erro" ng-if="form.rg.$touched && form.rg.$invalid" >
+                                        Preencha o campo RG corretamente.
+                                    </span>
+                                </div>      
                             </div>
-                        </div>
                         
-                        <div class="form-group">
-                            <label class="control-label col-sm-2"></label>
-                            <div class="col-sm-10">
-                                <input id="funcionariosendereco" type="text" class="form-control" placeholder="Endereço"
-                                ng-model="funcionario.endereco">
+                            
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">CPF</label>
+                                <div class="col-sm-10">
+                                    <input id="funcionariocpf" type="text" class="form-control" placeholder="CPF"
+                                    name="cpf" ng-model="funcionario.cpf" required>
+                                    <span class="erro" ng-if="form.cpf.$touched && form.cpf.$invalid" >
+                                        Preencha o campo CPF corretamente.
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2"></label>
-                            <div class="col-sm-10">
-                                <label >Ativo</label>
-                                <input class="form-group" type="checkbox" id="ativo" name="Ativo" value="Ativo"
-                                ng-model="funcionario.ativo">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button  type="submit" class="btn btn-primary" ng-click="postdata(funcionario)" data-dismiss="modal">Salvar</button>
+                            <div class="form-group" >
+                                <label class="control-label col-sm-2"> Profissão</label><br/>
+                                <div class="col-sm-10">
+                                    <select id="funcionario.profissao" ng-model="funcionario.profissao" 
+                                        name="funcao" class="form-control" required>
+                                        <option value="Atendente">Atendente</option>
+                                        <option value="Médico">Médico</option> 
+                                    </select>
+                                    <span class="erro" ng-if="form.funcao.$touched && form.funcao.$invalid" >
+                                        Preencha o campo Profissão corretamente.
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"></label>
+                                <div class="col-sm-10">
+                                    <input id="funcionariosendereco" type="text" class="form-control" placeholder="Endereço"
+                                    ng-model="funcionario.endereco">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2"></label>
+                                <div class="col-sm-10">
+                                    <label >Ativo</label>
+                                    <input class="form-group" type="checkbox" id="ativo" name="Ativo" value="Ativo"
+                                    ng-model="funcionario.ativo">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-2">
+                                    <button  type="submit" class="btn btn-primary" ng-click="postdata(funcionario)" data-dismiss="modal"
+                                    ng-disabled="form.funcao.$invalid ||form.nome.$invalid || form.cpf.$invalid" >Salvar</button>
+                                </div>
+                            </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -175,19 +192,19 @@
                             <div class="form-group">
                                 <label class="control-label col-sm-2">RG</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="RG"
+                                    <input type="text" class="form-control" placeholder="RG"
                                     ng-model="funcionarioSelecionado.rg">
                                 </div>
                             </div>
 
-
                             <div class="form-group">
                                 <label class="control-label col-sm-2">CPF</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control" placeholder="CPF"
+                                    <input type="text" class="form-control" placeholder="CPF"
                                     ng-model="funcionarioSelecionado.cpf">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="control-label col-sm-2">Endereço</label>
                                 <div class="col-sm-10">
@@ -195,7 +212,6 @@
                                     ng-model="funcionarioSelecionado.endereco">
                                 </div>
                             </div>
-
 
                             <div class="form-group" class="col-sm-5">
                                 <label class="control-label col-sm-1"> Profissão</label><br/>

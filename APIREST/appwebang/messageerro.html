@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/erro.css">
+</head>
+<body>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="content/bootstrap.min.css">
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="content/popper.min.js"></script>
+    <script src="content/jquery-3.3.1.min.js"></script>
+    <script src="content/bootstrap.min.js"></script>
+    <script src="angular/angular.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="/js/ConsultaAtendimento.js"></script>    
+    <script src="/angular/angular.js"></script>
+    <script src="/angular/angular.min.js"></script>
+    <script src="/angular/angular.min.js.map"></script>
+    <script src="/css/erro.css"></script>
+
+
+<div ng-app>
+  <!-- Botão para acionar modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">Abrir modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="formulario">
+            <div class="form-group">
+              <label for="LabelTo" class="control-label" translate>PRIORIDADE</label>
+              <input ng-model="texto"
+                id="texto" 
+                name="texto" 
+                type="text" 
+                class="form-control fontSizeItemReceiving" 
+                maxlength="20"
+                required>
+              <span class="error" ng-if="formulario.texto.$touched && formulario.texto.$invalid">Campo PRIORIDADE é obrigatorio</span>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" ng-disabled="formulario.texto.$invalid">Salvar mudanças</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
