@@ -10,6 +10,5 @@ namespace APIREST.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public Decimal Valor{ get; set; }
-
     }
 }

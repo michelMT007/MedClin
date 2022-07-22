@@ -755,7 +755,6 @@ F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.deps.json
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.runtimeconfig.json
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.runtimeconfig.dev.json
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.dll
-F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\ref\APIREST.dll
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.pdb
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.Views.dll
 F:\APIRESTATUAL\APIREST\APIREST\bin\Debug\net5.0\APIREST.Views.pdb
@@ -885,9 +884,8 @@ F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.MvcApplicationPartsAsse
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.MvcApplicationPartsAssemblyInfo.cache
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.RazorAssemblyInfo.cache
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.RazorAssemblyInfo.cs
-F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\staticwebassets\APIREST.StaticWebAssets.Manifest.cache
-F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\staticwebassets\APIREST.StaticWebAssets.xml
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\scopedcss\bundle\APIREST.styles.css
+F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\staticwebassets\APIREST.StaticWebAssets.Manifest.cache
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.TagHelpers.input.cache
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.TagHelpers.output.cache
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.RazorCoreGenerate.cache
@@ -898,6 +896,7 @@ F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.RazorTargetAssemblyInfo
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.Views.pdb
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.csproj.CopyComplete
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.dll
-F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\ref\APIREST.dll
+F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\refint\APIREST.dll
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.pdb
 F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\APIREST.genruntimeconfig.cache
+F:\APIRESTATUAL\APIREST\APIREST\obj\Debug\net5.0\ref\APIREST.dll
