@@ -33,7 +33,7 @@ namespace APIREST
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-        .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+            .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
 
             services.AddPortableObjectLocalization();
 
